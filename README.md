@@ -16,11 +16,11 @@ An extension that helps you to wholly or partly mute the brand-new noisy GitHub 
 ### Features 主要特性
 
 - Filter by feed type 支持按动态类型过滤
+- Filter by username 按用户名过滤信息
 - Remove the detailed preview views 可移除动态下方出现的预览区块
 
 ### Todos 未来目标
 
-- Filter by username (developing) 按用户名过滤信息（已在开发中）
 - Add the support for more feed types (developing) 支持更多的动态类型（已在开发中）
 
 ### Screenshots 屏幕截图

@@ -1,5 +1,5 @@
 function log_(msg) {
-    console.log(msg);
+    //console.log(msg);
 }
 
 (function () {
@@ -12,7 +12,9 @@ function log_(msg) {
             hideStar: false,
             hideCreate: false,
             hideFollow: true,
-            hideIssues: false
+            hideIssues: false,
+            hideUsersS: false,
+            hideUsers: []
         }, function (items) {
             chrome.browserAction.setIcon({path: items.enabled ? "icon16.png" : "icon_d16.png"});
             $('#enabled').prop('checked', items.enabled);
@@ -23,6 +25,8 @@ function log_(msg) {
             $('#hide_create').prop('checked', items.hideCreate);
             $('#hide_follow').prop('checked', items.hideFollow);
             $('#hide_issues').prop('checked', items.hideIssues);
+            $('#hide_users_s').prop('checked', items.hideUsersS);
+            $('#hide_users').val(items.hideUsers.join(' '));
             if (items.enabled) {
                 $('#detailed_settings').show(300);
                 $('#hint').hide(300);
@@ -37,10 +41,17 @@ function log_(msg) {
                 $('#hide_feed_details_container').hide(300);
                 $('#more_detailed_settings').hide(300);
             }
+            if (items.hideUsersS) {
+                $('#hide_users_c').show(300);
+            } else {
+                $('#hide_users_c').hide(300);
+            }
         });
     }
 
     function save() {
+        var trimmed = $('#hide_users').val().replace(/\n/g, " ").trim();
+        var usernames = trimmed.split(/ +/);
         chrome.storage.sync.set({
             enabled: $('#enabled').prop('checked'),
             hideAll: $('#hide_all').prop('checked'),
@@ -49,7 +60,9 @@ function log_(msg) {
             hideStar: $('#hide_star').prop('checked'),
             hideCreate: $('#hide_create').prop('checked'),
             hideFollow: $('#hide_follow').prop('checked'),
-            hideIssues: $('#hide_issues').prop('checked')
+            hideIssues: $('#hide_issues').prop('checked'),
+            hideUsersS: $('#hide_users_s').prop('checked'),
+            hideUsers: usernames
         }, function () {
             $.notify("Settings has been saved.", {
                 type: "success",
@@ -61,6 +74,10 @@ function log_(msg) {
     }
 
     $('input').change(function () {
+        save();
+    });
+
+    $("#hide_users").focusout(function () {
         save();
     });
 

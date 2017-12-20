@@ -5,12 +5,12 @@ var initDone = false;
 var targetContainer;
 
 function log_(msg) {
-    console.log(msg);
+    //console.log(msg);
 }
 var OPTIONS = {};
 
 function extractUsername(statusLine) {
-    const regex = /(\S+).*/g;
+    const regex = /[^\s]+/gy;
     var m = regex.exec(statusLine);
     if (m !== null) {
         return m[0];
@@ -26,18 +26,19 @@ function moderate() {
         try {
             var child = targetContainer.children[i];
             if (child.tagName !== "DIV") break;
+            if (child.className === "tooltip-toggle") break;
             var feedType = child.className;
             var innerBody = child.children[0];
             var innerChild = innerBody.children[0].children[1];
             var statusView = innerChild.children[0];
             var detailedView = innerChild.children[1];
+
             if (OPTIONS.hideAll) {
                 innerBody.parentElement.removeChild(innerBody);
             } else {
                 if (OPTIONS.hideDetailedFeed) {
                     detailedView.parentElement.removeChild(detailedView);
                 }
-
                 if ((OPTIONS.hideStar && feedType === "watch_started")
                     || (OPTIONS.hideFork && feedType === "fork")
                     || (OPTIONS.hideCreate && feedType === "create")
@@ -45,8 +46,11 @@ function moderate() {
                     || (OPTIONS.hideIssues && (feedType === "issues_closed" || feedType === "issues_opened"))) {
                     innerBody.parentElement.removeChild(innerBody);
                 }
-
-                extractUsername(statusView.innerText);
+                if (OPTIONS.hideUsersS) {
+                    if (OPTIONS.hideUsers.indexOf(extractUsername(statusView.innerText)) >= 0) {
+                        innerBody.parentElement.removeChild(innerBody);
+                    }
+                }
             }
         } catch (idontcare) {
             log_(idontcare);
@@ -63,14 +67,10 @@ function schedule() {
 }
 
 function init() {
-    console.log("2");
-    console.log(OPTIONS.enabled);
-
     if (!OPTIONS.enabled) {
         return;
     }
     var el_news = document.getElementsByClassName("news");
-    var childNodes;
     if (el_news === undefined || el_news.length === 0) {
         // abort
         log_("no element w/.news found.");
@@ -98,9 +98,10 @@ chrome.storage.sync.get({
     hideStar: false,
     hideCreate: false,
     hideFollow: true,
-    hideIssues: true
+    hideIssues: true,
+    hideUsersS: false,
+    hideUsers: []
 }, function (items) {
-    console.log(items);
     OPTIONS = {
         enabled: items.enabled,
         hideAll: items.hideAll,
@@ -109,9 +110,9 @@ chrome.storage.sync.get({
         hideStar: items.hideStar,
         hideCreate: items.hideCreate,
         hideFollow: items.hideFollow,
-        hideIssues: items.hideIssues
+        hideIssues: items.hideIssues,
+        hideUsersS: items.hideUsersS,
+        hideUsers: items.hideUsers
     };
-    console.log("1");
-
     init();
 });

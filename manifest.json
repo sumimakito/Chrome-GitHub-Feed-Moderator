@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "GitHub Feed Moderator",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Never ever try to be a noisy evil.",
   "icons": {
     "16": "icon16.png",
@@ -15,9 +15,11 @@
   "content_scripts": [
     {
       "matches": [
-        "*://github.com/*"
+        "*://github.com/"
       ],
       "js": [
+        "js/bootstrap.min.js",
+        "js/jquery.min.js",
         "moderator.js"
       ],
       "run_at": "document_idle"
@@ -25,7 +27,7 @@
   ],
   "permissions": [
     "storage",
-    "http://github.com/*",
-    "https://github.com/*"
+    "http://github.com/",
+    "https://github.com/"
   ]
 }
