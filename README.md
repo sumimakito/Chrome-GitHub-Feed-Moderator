@@ -27,9 +27,27 @@ An extension that helps you to wholly or partly mute the brand-new noisy GitHub 
 
 ![Settings](https://raw.githubusercontent.com/SumiMakito/Chrome-GitHub-Feed-Moderator/master/art/screenshot.png)
 
-### Download 下载
+### Installation 安装步骤
 
-[Download from releases](https://github.com/SumiMakito/Chrome-GitHub-Feed-Moderator/releases)
+Since this extension has not been submitted to the Chrome Web Store, we have to fiddle with the settings (thanks to some changes in Chrome) in advance.
+
+First, ensure the **Developer mode** checkbox in the top right-hand corner of the **Extension page** is checked.
+
+Then, download [the zip archive](https://github.com/SumiMakito/Chrome-GitHub-Feed-Moderator/archive/master.zip) of this repository, then extract the files to a folder.
+
+Click **Load unpacked extension** on the **Extension** page and select the folder you've just extracted the zip archive to.
+
+All things done. Enjoy.
+
+目前这个扩展并没有提交到 Chrome 网上商店，Chrome 修改了一些政策，因此在安装前需要进行设置。
+
+首先在 **扩展程序** 页面确认 **开发者模式** 已勾选。
+
+接下来下载本仓库的 [ZIP 压缩档](https://github.com/SumiMakito/Chrome-GitHub-Feed-Moderator/archive/master.zip)，然后将它解压到一个文件夹中。
+
+在 **扩展程序** 页面按下 **载入正在开发的扩展程序** 按钮，并选择刚才解压到的文件夹。
+
+这样就可以正常使用了~
 
 ### Thanks 感谢
 
@@ -56,6 +74,10 @@ You can use WeChat to scan the QR code showed above.
 ### License 授权协议
 
 GNU GPLv3
+
+**Additional Agreement:** You are not allowed to upload the original extension or any extension based on or derived from the original one to the Chrome Web Store.
+
+**附加条款：** 禁止将本扩展程序、基于本扩展程序开发的或由此扩展程序派生的扩展程序提交至 Chrome 网上商店。
 
 ```
 Copyright 2017-2018 Makito
