@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="">
+    <title>GitHub Feed Moderator</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="renderer" content="webkit">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/switches.css">
+    <link rel="stylesheet" href="css/pretty-checkbox.min.css">
+</head>
+<body>
+<div id="app" class="stage">
+    <div class="container">
+        <div align="center">
+            <div class="section-container">
+                <div class="section-content">
+                    <h3 class="title">GitHub Feed Moderator</h3>
+                    <p class="subtitle">Never ever be a noisy evil.</p>
+                    <div>
+                        <h5>Moderator</h5>
+                        <input class="tgl tgl-skewed" id="enabled" type="checkbox"/>
+                        <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="enabled"></label>
+                        <p id="hint">Turn on the "Moderator" to view more settings.</p>
+                    </div>
+                    <div id="detailed_settings">
+                        <div>
+                            <div id="hide_all_container" style="display: inline-block;">
+                                <h5 style="margin-top: 10px">Hide All</h5>
+                                <input class="tgl tgl-skewed" id="hide_all" type="checkbox"/>
+                                <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON"
+                                       for="hide_all"></label>
+                            </div>
+                            <div id="hide_feed_details_container" style="display: inline-block; margin-left: 20px">
+                                <h5 style="margin-top: 10px">Feed Details</h5>
+                                <input class="tgl tgl-skewed" id="hide_feed_details" type="checkbox"/>
+                                <label class="tgl-btn" data-tg-off="SHOW" data-tg-on="HIDE"
+                                       for="hide_feed_details"></label>
+                            </div>
+                        </div>
+                        <div id="more_detailed_settings">
+                            <h5 style="margin-top: 10px">Don't Show Me:</h5>
+                            <h6 style="margin-top: 10px">/ Repositories /</h6>
+                            <ul>
+                                <li>
+                                    <div class="pretty p-default p-curve p-thick">
+                                        <input type="checkbox" id="hide_fork"/>
+                                        <div class="state">
+                                            <label>Fork</label>
+                                        </div>
+                                    </div>
+                                    <div class="pretty p-default p-curve p-thick">
+                                        <input type="checkbox" id="hide_star"/>
+                                        <div class="state">
+                                            <label>Star</label>
+                                        </div>
+                                    </div>
+                                    <div class="pretty p-default p-curve p-thick">
+                                        <input type="checkbox" id="hide_create"/>
+                                        <div class="state">
+                                            <label>Create</label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <h6 style="margin-top: 10px">/ Social Activities /</h6>
+                            <ul>
+                                <li>
+                                    <div class="pretty p-default p-curve p-thick">
+                                        <input type="checkbox" id="hide_follow"/>
+                                        <div class="state">
+                                            <label>Follow</label>
+                                        </div>
+                                    </div>
+                                    <div class="pretty p-default p-curve p-thick">
+                                        <input type="checkbox" id="hide_issues"/>
+                                        <div class="state">
+                                            <label>Issues</label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 13px; margin-bottom: 0; "><a
+                            href="https://github.com/SumiMakito/Chrome-GitHub-Feed-Moderator" rel="noreferrer noopener">Fork
+                        on GitHub</a></p>
+                    <p style="font-size: 13px;">&copy; 2017-2018 <a href="https://mak1t0.cc/" rel="noreferrer noopener">Makito</a><br>Made
+                        with ❤&#xFE0E;</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-notify.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
