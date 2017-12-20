@@ -47,7 +47,7 @@ Makito 是一个自由软件开发者，开发软件便也是收入来源。
 
 如果您觉得这个扩展还挺有趣，并且愿意支持开发者的话，欢迎打赏支持。谢谢。
 
-<img src="https://raw.githubusercontent.com/SumiMakito/Misc/master/wechat.png" width="300">
+<img src="https://raw.githubusercontent.com/SumiMakito/Misc/master/wechat-2.png" width="300">
 
 You can use WeChat to scan the QR code showed above.
 
